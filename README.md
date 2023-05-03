@@ -15,11 +15,11 @@ Esta API será construída pelos componentes do grupo 4:
 |202004777|Rafael Estanislau Morais dos Santos|[RafaelEstanislau](https://github.com/RafaelEstanislau)|
 
 ### Requisitos Funcionais
-1. RF001 - O sistema deve ser capaz de efetuar o cadastro dos locatários utilizando RG ou CPF
+1. RF001 - O sistema deve ser capaz de efetuar o cadastro dos locatários utilizando CPF
 2. RF002 - O sistema deve ser capaz de calcular a data de devolução do livro locado levando em conta feriados e dias não úteis
 3. RF003 - O sistema deve ser capaz de controlar a entrada e saída de livros, informando com quem um livro locado está e a data prevista para devolução
-3. RF004 - <descrever>
-3. RF005 - <descrever>
+4. RF004 - O sistema deve ser capaz de mostrar o inventário de livros
+5. RF005 - O sistema deve ser capaz de classificar a categória do livro. 
 
 ### Requisitos Não Funcionais
 <Descrever os requisitos não funcionais identificados no mesmo modelo da descrição dos requisitos funcionais>
@@ -31,7 +31,7 @@ Esta API será construída pelos componentes do grupo 4:
 <Adicionar outras regras, se existirem.>
 
 ### Tecnologia de _Front-end_
-A tecnologia utilizada no Front-end será React
+A tecnologia utilizada no Front-end será JavaScript.
 
 ### Tecnologia de _Back-end_
 A tecnologia utilizada no Back-end será NodeJS
@@ -46,7 +46,13 @@ A tecnologia utilizada para a persistência de dados será através de um banco 
 
 |Iteração|Tarefa|Data Início|Data Fim|Responsável|Situação|
 |---|---|---|---|---|---|
-|1|Especificar História de Usuário 1|02/05/2023|03/05/2023|Rafael Estanislau|Programada|
+|1|Especificar História de Usuário 1|17/04/2023|05/05/2023|Rafael Estanislau|Programada|
+|2||06/05/2023|19/05/2023|Rafael Estanislau|Programada|
+|3||20/05/2023|02/06/2023|Rafael Estanislau|Programada|
+|4||03/06/2023|16/06/2023|Rafael Estanislau|Programada|
+|5||17/06/2023|30/06/2023|Rafael Estanislau|Programada|
+|6||01/07/2023|21/07/2023|Rafael Estanislau|Programada|
+|7||22/07/2023|11/08/2023|Rafael Estanislau|Programada|
 
 ### História de Usuário
 1. HU01 - Eu como um funcionário da biblioteca, quero controlar a disponibilidade de livros no sistema para que eu possa organizar pedidos de novos livros tendo conhecimento da demanda local por empréstimo de livros.
