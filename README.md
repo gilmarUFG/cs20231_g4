@@ -15,9 +15,9 @@ Esta API será construída pelos componentes do grupo 4:
 |202004777|Rafael Estanislau Morais dos Santos|[RafaelEstanislau](https://github.com/RafaelEstanislau)|
 
 ### Requisitos Funcionais
-1. RF001 - <descrever>
-2. RF002 - <descrever>
-3. RF003 - <descrever>
+1. RF001 - O sistema deve ser capaz de efetuar o cadastro dos locatários utilizando RG ou CPF
+2. RF002 - O sistema deve ser capaz de calcular a data de devolução do livro locado levando em conta feriados e dias não úteis
+3. RF003 - O sistema deve ser capaz de controlar a entrada e saída de livros, informando com quem um livro locado está e a data prevista para devolução
 3. RF004 - <descrever>
 3. RF005 - <descrever>
 
