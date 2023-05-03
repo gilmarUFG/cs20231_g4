@@ -22,7 +22,11 @@ Esta API será construída pelos componentes do grupo 4:
 5. RF005 - O sistema deve ser capaz de classificar a categória do livro. 
 
 ### Requisitos Não Funcionais
-<Descrever os requisitos não funcionais identificados no mesmo modelo da descrição dos requisitos funcionais>
+1. A API deve ser capaz de lidar com um volume considerável de solicitações, devido ao número potencial de usuários.
+2. A API deve garantir a segurança dos dados dos usuários e das informações da biblioteca pública. 
+3. A API deve ser capaz de responder rapidamente ás solicitações dos usuários, garantindo uma boa experiência do usuário.
+4. A API deve ser confiável e estar disponível o tempo todo, para que os usuários possam acessar o estoque da biblioteca pública a qualquer momento.
+5. Facilidade de uso, para que os usuários possam navegar facilmente pelo estoque da biblioteca e realizar as operações necessárias.
 
 ### Regras de Negócio
 1. RN01 - <descrever>
