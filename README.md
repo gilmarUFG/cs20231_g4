@@ -1,7 +1,7 @@
 ### cs_20234
 Repositório definido para a manutenção do controle de versão dos artefatos do projeto de construção de uma API Rest para:
 
-**<descrever o propósito da API>**.
+**A API tem como propósito auxiliar no controle de estoque de uma biblioteca pública.**.
 
 ### Grupo
 Esta API será construída pelos componentes do grupo 4:
@@ -31,13 +31,13 @@ Esta API será construída pelos componentes do grupo 4:
 <Adicionar outras regras, se existirem.>
 
 ### Tecnologia de _Front-end_
-<Descrever a tecnologia que será utilizada no _front-end_.>
+A tecnologia utilizada no Front-end será React
 
 ### Tecnologia de _Back-end_
-<Descrever a tecnologia que será utilizada no _front-end_.>
+A tecnologia utilizada no Back-end será NodeJS
 
 ### Tecnologia de Persistência de Dados
-<Descrever a tecnologia que será utilizada para Persistência de dados.>
+A tecnologia utilizada para a persistência de dados será através de um banco de dados relacional(SQL)
 
 ### Local do _Deploy_
 <Descrever onde será feito o _deploy_ da API.>
