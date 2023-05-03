@@ -47,3 +47,6 @@ A tecnologia utilizada para a persistência de dados será através de um banco 
 |Iteração|Tarefa|Data Início|Data Fim|Responsável|Situação|
 |---|---|---|---|---|---|
 |1|Especificar História de Usuário 1|02/05/2023|03/05/2023|Rafael Estanislau|Programada|
+
+### História de Usuário
+1. HU01 - Eu como um funcionário da biblioteca, quero controlar a disponibilidade de livros no sistema para que eu possa organizar pedidos de novos livros tendo conhecimento da demanda local por empréstimo de livros.
