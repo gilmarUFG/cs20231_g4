@@ -34,8 +34,6 @@ Esta API será construída pelos componentes do grupo 4:
 3. RN03 - O sistema deve bloquear o locatário com livros em atraso até a devolução.
 4. RN04 - O sistema deve bloquear usuarios que tentem locar  livros sem estar logado, apesar da consulta dos livros ser pública.
 
-<Adicionar outras regras, se existirem.>
-
 ### Tecnologia de _Front-end_
 A tecnologia utilizada no Front-end será JavaScript.
 
@@ -62,3 +60,15 @@ O _deploy_ da API sera feito no **Heroku**
 
 ### História de Usuário
 1. HU01 - Eu como um funcionário da biblioteca, quero controlar a disponibilidade de livros no sistema para que eu possa organizar pedidos de novos livros tendo conhecimento da demanda local por empréstimo de livros.
+
+HU02 - Eu como um usuário da biblioteca, quero ser notificado sobre o prazo de devolução dos livros que eu aluguei, para evitar ser bloqueado na biblioteca.
+
+HU03 - Eu como um usuário da biblioteca, quero poder pesquisar por livros no sistema utilizando palavras-chave, autor, título e outras informações relevantes, para facilitar a busca por livros de meu interesse.
+
+HU04 - Eu como um funcionário da biblioteca, quero ter a possibilidade de atualizar as informações dos livros no sistema, como quantidade de exemplares, autor, categoria, para manter o catálogo atualizado.
+
+HU05 - Eu como um usuário da biblioteca, quero poder renovar o prazo de empréstimo dos livros que eu aluguei, caso necessário, para ter mais tempo para ler o livro e evitar multas.
+
+HU06 - Eu como um usuário da biblioteca, quero poder avaliar os livros que eu aluguei e compartilhar minhas opiniões com outros usuários, para ajudar na escolha de novos livros.
+
+HU07 - Eu como um administrador da biblioteca, quero ser capaz de gerar relatórios sobre os livros mais alugados.
