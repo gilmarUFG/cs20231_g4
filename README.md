@@ -31,7 +31,8 @@ Esta API será construída pelos componentes do grupo 4:
 ### Regras de Negócio
 1. RN01 - O sistema deve permitir apenas locatários cadastrados realizarem a locação de livros.
 2. RN02 - O sistema deve permitir que um locatário possa locar até 3 livros por vez.
-4. RN04 - O sistema deve bloquear o locatário com livros em atraso até a devolução.
+3. RN03 - O sistema deve bloquear o locatário com livros em atraso até a devolução.
+4. RN04 - O sistema deve bloquear usuarios que tentem locar  livros sem estar logado, apesar da consulta dos livros ser pública.
 
 <Adicionar outras regras, se existirem.>
 
@@ -45,7 +46,7 @@ A tecnologia utilizada no Back-end será NodeJS
 A tecnologia utilizada para a persistência de dados será através de um banco de dados relacional(SQL)
 
 ### Local do _Deploy_
-<Descrever onde será feito o _deploy_ da API.>
+O _deploy_ da API sera feito no **Heroku** 
 
 ### Cronograma de Desenvolvimento
 
