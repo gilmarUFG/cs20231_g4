@@ -18,8 +18,8 @@ Esta API será construída pelos componentes do grupo 4:
 1. RF001 - O sistema deve ser capaz de efetuar o cadastro dos locatários utilizando CPF
 2. RF002 - O sistema deve ser capaz de calcular a data de devolução do livro locado levando em conta feriados e dias não úteis
 3. RF003 - O sistema deve ser capaz de controlar a entrada e saída de livros, informando com quem um livro locado está e a data prevista para devolução
-4. RF004 - O sistema deve ser capaz de mostrar o inventário de livros
-5. RF005 - O sistema deve ser capaz de classificar a categória do livro. 
+4. RF004 - O sistema deve permitir o registro de itens no estoque da biblioteca pública, incluindo informações como título, autor, categória, número de exemplares.
+5. RF005 - O sistema deve deve permitir a renovação do empréstimo de itens por um determinado período de tempo.
 
 ### Requisitos Não Funcionais
 1. A API deve ser capaz de lidar com um volume considerável de solicitações, devido ao número potencial de usuários.
@@ -29,8 +29,9 @@ Esta API será construída pelos componentes do grupo 4:
 5. Facilidade de uso, para que os usuários possam navegar facilmente pelo estoque da biblioteca e realizar as operações necessárias.
 
 ### Regras de Negócio
-1. RN01 - <descrever>
-2. RN02 - <descrever>
+1. RN01 - O sistema deve permitir apenas locatários cadastrados realizarem a locação de livros.
+2. RN02 - O sistema deve permitir que um locatário possa locar até 3 livros por vez.
+4. RN04 - O sistema deve bloquear o locatário com livros em atraso até a devolução.
 
 <Adicionar outras regras, se existirem.>
 
