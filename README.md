@@ -51,12 +51,12 @@ O _deploy_ da API sera feito no **Heroku**.
 |Iteração|Tarefa|Data Início|Data Fim|Responsável|Situação|
 |---|---|---|---|---|---|
 |1|Especificar História de Usuário 1|17/04/2023|05/05/2023|Rafael Estanislau|Programada|
-|2||06/05/2023|19/05/2023|Rafael Estanislau|Programada|
-|3||20/05/2023|02/06/2023|Rafael Estanislau|Programada|
-|4||03/06/2023|16/06/2023|Rafael Estanislau|Programada|
-|5||17/06/2023|30/06/2023|Rafael Estanislau|Programada|
-|6||01/07/2023|21/07/2023|Rafael Estanislau|Programada|
-|7||22/07/2023|11/08/2023|Rafael Estanislau|Programada|
+|2|Diagramar Casos de Uso, Classe, Sequência, Arquitetura|06/05/2023|19/05/2023|Rafael Estanislau|Programada|
+|3|Implementar Back End|20/05/2023|02/06/2023|Rafael Estanislau|Programada|
+|4|Implementar Back End|03/06/2023|16/06/2023|Rafael Estanislau|Programada|
+|5|Implementar Front End|17/06/2023|30/06/2023|Rafael Estanislau|Programada|
+|6|Implementar Front End|01/07/2023|21/07/2023|Rafael Estanislau|Programada|
+|7|Validações e Testes|22/07/2023|11/08/2023|Rafael Estanislau|Programada|
 
 ### História de Usuário
 1. HU01 - Eu como um funcionário da biblioteca, quero controlar a disponibilidade de livros no sistema para que eu possa organizar pedidos de novos livros tendo conhecimento da demanda local por empréstimo de livros.
