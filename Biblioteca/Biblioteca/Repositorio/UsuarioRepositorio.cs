@@ -21,19 +21,38 @@ namespace Biblioteca.Repositorio
         {
             return await _dbContext.Usuarios.ToListAsync();
         }
-        public Task<UsuarioModel> Adicionar(UsuarioModel usuario)
+        public async Task<UsuarioModel> Adicionar(UsuarioModel usuario)
         {
-            throw new NotImplementedException();
+            await _dbContext.Usuarios.AddAsync(usuario);
+            await _dbContext.SaveChangesAsync();
+            return usuario;
         }
 
-        public Task<bool> Apagar(int id)
+        public async Task<bool> Apagar(int id)
         {
-            throw new NotImplementedException();
+            UsuarioModel usuarioPorId = await BuscarPorId(id);
+            if (usuarioPorId == null)
+            {
+                throw new Exception($"Usuário para o id {id} não foi encontrado");
+            }
+            _dbContext.Usuarios.Remove(usuarioPorId);
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<UsuarioModel> Atualizar(UsuarioModel usuario, int id)
+        public async Task<UsuarioModel> Atualizar(UsuarioModel usuario, int id)
         {
-            throw new NotImplementedException();
+            UsuarioModel usuarioPorId = await BuscarPorId(id);
+            if(usuarioPorId == null)
+            {
+                throw new Exception($"Usuário para o id {id} não foi encontrado");
+            }
+            usuarioPorId.Nome = usuario.Nome;
+            usuarioPorId.Email = usuario.Email;
+
+            _dbContext.Usuarios.Update(usuarioPorId);
+            await _dbContext.SaveChangesAsync();
+            return usuarioPorId;
         }
 
         
