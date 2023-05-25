@@ -1,3 +1,8 @@
+using Biblioteca.Data;
+using Biblioteca.Repositorio;
+using Biblioteca.Repositorio.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace Biblioteca
 {
     public class Program
@@ -12,6 +17,11 @@ namespace Biblioteca
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddEntityFrameworkSqlServer().AddDbContext<SistemaBibliotecaDBContext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+
+            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
             var app = builder.Build();
 

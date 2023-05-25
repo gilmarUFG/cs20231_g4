@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KTmMXZPvePbQMscyXzn19g9xMal+8MtjmMjaMe000sBX2W9/5OZYMg04z2K8el5EuP3XiqcW6V27ti5CgdO0pA==",
+  "dgSpecHash": "bRj3NHE84V8BIZhMz676reZeHMpPgmNt/UNt8YEdJ1WpI5U1+tDx/hY0NPY8ko5eroKZn1CX86ArUC12l97Yiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\Biblioteca\\Biblioteca\\Biblioteca.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\CS2023\\cs20231_g4\\Biblioteca\\Biblioteca\\Biblioteca.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
