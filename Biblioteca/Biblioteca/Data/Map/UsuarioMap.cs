@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Biblioteca.Data.Map
 {
-    public class UsuarioMapcs : IEntityTypeConfiguration<UsuarioModel>
+    public class UsuarioMap : IEntityTypeConfiguration<UsuarioModel>
     {
         public void Configure(EntityTypeBuilder<UsuarioModel> builder)
         {
@@ -12,6 +12,7 @@ namespace Biblioteca.Data.Map
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(150);
             builder.Property(x => x.Senha).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.DataNascimento).IsRequired();
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.Data.Map;
+using Biblioteca.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Data
@@ -13,6 +14,8 @@ namespace Biblioteca.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new LivroMap());
             base.OnModelCreating(modelBuilder);
         }
     }
