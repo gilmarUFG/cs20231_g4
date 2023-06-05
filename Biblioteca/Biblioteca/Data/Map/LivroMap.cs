@@ -12,6 +12,8 @@ namespace Biblioteca.Data.Map
             builder.Property(x => x.Titulo).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Autor).IsRequired().HasMaxLength(150);
             builder.Property(x => x.Editora).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.UsuarioId);
+            builder.HasOne(x => x.Usuario);
         }
     }
 }
