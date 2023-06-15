@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Enums;
+using Biblioteca.Helper;
 
 namespace Biblioteca.Models
 {
@@ -10,5 +11,10 @@ namespace Biblioteca.Models
         public string? Senha { get; set; }
         public DateTime DataNascimento { get; set; }
         public CargoUsuario Cargo { get; set; }
+
+        public void SetSenhaHash()
+        {
+            Senha = Senha?.GerarHash();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Biblioteca.Models;
 using Biblioteca.Repositorio.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Biblioteca.Controllers
@@ -14,6 +14,7 @@ namespace Biblioteca.Controllers
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
+        [Authorize(Policy = "AdminPolicy")]
         [HttpGet]
         public async Task< ActionResult<List<UsuarioModel>>> BuscarTodosUsuarios()
         {

@@ -49,7 +49,7 @@ namespace Biblioteca.Repositorio
             LivroModel livroPorId = await BuscarPorId(id);
             if(livroPorId == null)
             {
-                throw new Exception($"Usuário para o id {id} não foi encontrado");
+                throw new Exception($"Livro para o id {id} não foi encontrado");
             }
             livroPorId.Autor = livro.Autor;
             livroPorId.Editora = livro.Editora;
@@ -62,7 +62,35 @@ namespace Biblioteca.Repositorio
             await _dbContext.SaveChangesAsync();
             return livroPorId;
         }
+        public async Task<LivroModel> Alugar(int id, int idUsuario)
+        {
+            LivroModel livroPorId = await BuscarPorId(id);
+            if (livroPorId == null)
+            {
+                throw new Exception($"Livro para o id {id} não foi encontrado");
+            }
+            if(livroPorId.UsuarioId != null)
+                throw new Exception($"Livro para o id {id} já se encontra alugado no momento");
+            livroPorId.UsuarioId = idUsuario;
+            _dbContext.Livros.Update(livroPorId);
+            await _dbContext.SaveChangesAsync();
+            return livroPorId;
+        }
+        public async Task<LivroModel> Devolver(int id, int idUsuario)
+        {
+            LivroModel livroPorId = await BuscarPorId(id);
+            if (livroPorId == null)
+            {
+                throw new Exception($"Livro para o id {id} não foi encontrado");
+            }
+            if (livroPorId.UsuarioId == null)
+                throw new Exception($"Livro para o id {id} não se encontra alugado para ser devolvido");
+            livroPorId.UsuarioId = null;
+            _dbContext.Livros.Update(livroPorId);
+            await _dbContext.SaveChangesAsync();
+            return livroPorId;
+        }
 
-        
+
     }
 }
