@@ -23,6 +23,7 @@ namespace Biblioteca.Repositorio
         }
         public async Task<UsuarioModel> Adicionar(UsuarioModel usuario)
         {
+            usuario.SetSenhaHash();
             await _dbContext.Usuarios.AddAsync(usuario);
             await _dbContext.SaveChangesAsync();
             return usuario;

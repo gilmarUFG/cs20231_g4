@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Data;
+using Biblioteca.Helper;
 using Biblioteca.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -23,6 +24,7 @@ namespace Biblioteca.Services
         {
             try
             {
+                request.Senha = request?.Senha?.GerarHash();
                 var usuario = await _sistemaBibliotecaDBContext.Usuarios.Where(u => u.Email == request.Email && u.Senha == request.Senha).SingleAsync();
                 var response = new LoginResponse { Token = GenerateToken(usuario) };
                 return response;
