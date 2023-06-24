@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../Imagens/Icone_biblioteca.png">
+</head>
+<body>
+    <main class="principal">
+        <section class="principal_esquerda">
+            <h1 class="nome_biblioteca">Sistema de biblioteca</h1>
+    
+            <div class="campo_usuario campos">
+                <div>
+                    <i class="fas fa-solid fa-user"></i>
+                    <label for="usuario">Usuário</label>
+                </div>
+                <input type="email" name="usuario" class="inputUsuario inputs" id="id_usuario">
+            </div>
+            <div class="campo_senha campos">
+                <div>
+                    <i class="fas fa-solid fa-key"></i>
+                    <label for="">Senha</label>
+                </div>
+                <input type="password" name="senha" class="inputSenha inputs" id="id_LoginSenha">
+                <i class="fas fa-regular fa-eye visualizarSenha" id="id_btnMostrarSenha"></i>
+            </div>
+            <input class="btnEntrar" value="Entrar" type="submit" id="id_btnLogin">
+            
+        </section>
+        <section class="principal_direita">
+            <h1 class="nome_cadastro">Realizar cadastro</h1>
+            <label class="txtinputs Nometxt" for="Nome">Nome:</label>
+            <!--------------------------------------->
+            <input class="inputsCadastro" id="id_nomeCadastro" type="text" name="Nome">
+            <div class="divAniversarioFuncionario">
+                <div>
+                    <label class="txtinputs txtAniversario" for="DataAniversario">Nascimento:</label><br>
+                    <input class="inputsCadastro dataAniversario" type="date" name="DataAniversario" id="">
+                </div>
+                <div>
+                    <label class="txtinputs" style="margin-left: 0.5vmax;">Tipo:</label>
+                    <div class="divSelecionaUsuario inputsCadastro" id="id_FuncionarioUsuario">Usuário</div>
+                </div>
+            </div>
+            <label class="txtinputs" for="email">Email:</label>
+            <input class="inputsCadastro" type="email" name="email" id="">
+            <label class="txtinputs" for="senha">Senha:</label>
+            <input class="inputsCadastro inputsSenhaCadastro" type="password" name="senha" id="id_cadastroSenha">
+            <i class="fas fa-regular fa-eye visualizarSenhaCadastro " id="id_btnMostrarSenhaCadastro"></i>
+            <label class="txtinputs" for="ConfirmaSenha">Confirmar senha:</label>
+            <input class="inputsCadastro inputsSenhaCadastro" type="password" name="ConfirmaSenha" id="id_confirmaCadastroSenha">
+            <i class="fas fa-regular fa-eye visualizarSenhaCadastro" id="id_btnMostrarSenhaConfirmaCadastro"></i>
+            <input class="btnCadastrar" id="id_btnCadastrar" type="submit" name="Enviar" value="Cadastrar">
+        </section>
+        <section class="tela_movel" id="id_principal_direita">
+            <p class="realizar_cadastro" id="id_textoCadastro">Não possui conta?</p>
+            <i class="fas fa-solid fa-arrow-down"></i>
+            <button type="submit" class="btnLoginCadastro" id="id_btnMovel">Realizar cadastro</button>
+        </section>
+    </main>
+
+    <i class="fas fa-solid fa-book livro1 icones"></i>
+    <i class="fas fa-solid fa-book livro2 icones"></i>
+    <i class="fas fa-solid fa-book-open icones"></i>
+    <i class="fas fa-solid fa-pen icones"></i>
+
+    <script src="JSLogin.js"></script>
+</body>
+</html>
