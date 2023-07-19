@@ -15,7 +15,7 @@ namespace Biblioteca.Controllers
             _livroRepositorio = livroRepositorio;
         }
         [HttpGet]
-        public async Task< ActionResult<List<LivroModel>>> BuscarTodosLivros()
+        public async Task<ActionResult<List<LivroModel>>> BuscarTodosLivros()
         {
             List<LivroModel> livros =  await _livroRepositorio.BuscarTodosLivros();
             return Ok(livros);
@@ -37,6 +37,18 @@ namespace Biblioteca.Controllers
         {
             livroModel.Id = id;
             LivroModel livro = await _livroRepositorio.Atualizar(livroModel, id);
+            return Ok(livro);
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult<LivroModel>> Alugar([FromBody] int id, int idUsuario)
+        {
+            LivroModel livro = await _livroRepositorio.Alugar(id, idUsuario);
+            return Ok(livro);
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult<LivroModel>> Devolver([FromBody] int id, int idUsuario)
+        {
+            LivroModel livro = await _livroRepositorio.Devolver(id, idUsuario);
             return Ok(livro);
         }
         [HttpDelete("{id}")]

@@ -1,0 +1,256 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #bcfff8;
+}
+.principal{
+    width: 50%;
+    height: 30vmax;
+    display: flex;
+    align-items: center;
+    background-color: #a7fff6;
+    box-shadow: 1px 1px 10px #2B8C8C;
+    border-radius: 10px;
+    color: #0D1F26;
+}
+.principal_esquerda{
+    height: 30vmax;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tela_movel{
+    height: 30vmax;
+    width: 25%;
+    right: 25%;
+    background-color: #0D1F26;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    color: #88d8d8;
+    font-size: 1.6vmax;
+}
+@keyframes moverparaLadoEsquerdo{
+    from{
+        border-radius: 0 10px 10px 0;
+        translate: 0%;
+    }
+    to{
+        border-radius: 10px 0 0 10px;
+        translate: -100%;
+    }
+}
+@keyframes moverparaLadoDireito{
+    from{
+        border-radius: 10px 0 0 10px;
+        translate: -100%;
+    }
+    to{
+        border-radius: 0 10px 10px 0;
+        translate: 0%;
+    }
+}
+.btnLoginCadastro{
+    border: none;
+    margin-top: 2vmax;
+    background-color: #1e6666;
+    width: 15vmax;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.25vmax;
+    padding: 1vmax;
+    cursor: pointer;
+}
+.btnLoginCadastro:hover{
+    background-color: #35afaf;
+}
+.nome_biblioteca{
+    font-size: 2vmax;
+    margin-top: 4vmax;
+    text-align: center;
+}
+.nome_cadastro{
+    font-size: 1.5vmax;
+    margin-top: 1.6vmax;
+}
+.principal_direita{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    font-weight: bold;
+}
+.inputsCadastro{
+    outline: none;
+    width: 17vmax;
+    height: 3.5vmin;
+    border: none;
+    background-color: #88d8d8;
+    margin-bottom: 0.6vmax;
+    border-radius: 5px;
+    border-bottom: 2px solid #0D1F26;
+    color: #0D1F26;
+    font-weight: bold;
+    font-size: 0.8vmax;
+    cursor: pointer;
+}
+.inputsCadastro:hover{
+    background-color: #60adad;
+}
+.divAniversarioFuncionario{
+    width: 17vmax;
+    display: flex;
+    align-items: flex-start;
+}
+.dataAniversario{
+    width: 8vmax;
+    align-self: flex-start;
+    margin-left: 0;
+}
+.txtinputs{
+    font-size: 0.9vmax;
+}
+.txtAniversario{
+    align-self: flex-start;
+    letter-spacing: 0;
+    display: inline-block;
+}
+.btnCadastrar{
+    background-color: #1e6666;
+    color: white;
+    font-weight: bold;
+    height: 3vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7vmax;
+    border-radius: 5px;
+    font-size: 1.25vmax;
+    border: none;
+    cursor: pointer;
+}
+.btnCadastrar:hover{
+    background-color: #35afaf;
+}
+.campo_usuario{
+    margin-top: 3vmin;
+}
+.campos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #0D1F26;
+    font-weight: bold;
+    width: 24vmax;
+    font-size: 1.3vmax;
+}
+.inputsSenhaCadastro{
+    position: relative;
+}
+.visualizarSenhaCadastro{
+    translate: 7.5vmax -2.05vmax;
+    font-size: 1vmax;
+    cursor: pointer;
+}
+.visualizarSenhaCadastro:hover{
+    color: #1e6666;
+}
+.inputs{
+    height: 4vmin;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid #0D1F26;
+    margin-top: 0.6vmin;
+    width: 18vmax;
+    font-weight: bold;
+    background-color: #88d8d8;
+    cursor: pointer;
+}
+.inputSenha{
+    position: relative;
+}
+.visualizarSenha{
+    position: absolute;
+    top: 55%;
+    right: 15%;
+}
+.visualizarSenha:hover{
+    color: #1e6666;
+}
+.inputs:focus {
+    outline: none;
+}
+.inputs:hover{
+    background-color: #60adad;
+}
+.campo_senha{
+    margin-top: 3vmin;
+    position: relative;
+}
+.btnEntrar{
+    margin-top: 2vmax;
+    background-color: #1e6666;
+    color: white;
+    font-weight: bold;
+    height: 3vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7vmax;
+    border-radius: 5px;
+    font-size: 1.25vmax;
+    border: none;
+    cursor: pointer;
+}
+.btnEntrar:hover{
+    background-color: #35afaf;
+}
+.icones{
+    color: #1e6666;
+    position: absolute;
+}
+.icones:hover{
+    color: #0D1F26;
+}
+.livro1{
+    left: 6vmax;
+    bottom: 15vmax;
+    font-size: 4vmax;
+    rotate: -30deg;
+}
+.livro2{
+    right: 10vmax;
+    top: 4vmax;
+    font-size: 6vmax;
+    rotate: 10deg;
+}
+.fa-book-open{
+    bottom: 4vmax;
+    right: 40vmax;
+    font-size: 3vmax;
+    rotate: -10deg;
+}
+.fa-pen{
+    top: 8vmin;
+    left: 37vmax;
+    font-size: 2.5vmax;
+}
+.divSelecionaUsuario{
+    width: 8.6vmax;
+    font-size: 1vmax;
+    margin-left: 0.5vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
