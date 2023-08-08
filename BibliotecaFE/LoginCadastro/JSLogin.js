@@ -77,14 +77,14 @@
     trocaFuncionarioUsuario.addEventListener("click", mudaFuncionarioUsuario);
     
     function mudaFuncionarioUsuario(){
-        let usuario = true;
-        if (trocaFuncionarioUsuario.textContent == "Usuário") {
+        let cliente = 1;
+        if (trocaFuncionarioUsuario.textContent == "Cliente") {
             trocaFuncionarioUsuario.textContent = "Funcionário";
-            usuario = false;
+            cliente = 2;
         }else{
-            trocaFuncionarioUsuario.textContent = "Usuário";
+            trocaFuncionarioUsuario.textContent = "Cliente";
         }
-        return usuario;
+        return cliente;
     }
     //-------------------------------------------------------------------------
     //checar se no login foram preenchidos os campos(usuário tem @), e a senha é maior do que 8
