@@ -92,46 +92,53 @@
     const loginUsuario = document.getElementById("id_usuario");
     const btnLogin = document.getElementById("id_btnLogin");
 
-    btnLogin.addEventListener("click", fazerLogin);
+    
 
-    function fazerLogin(){
+    // async function RealizarLogin(){
+    //     await fetch("https://localhost:7284/Login", {
+    //         headers: {
+    //             "Content-Type": "application/json; charset=utf-8"
+    //         },
+    //         method: 'PUT',
+    //         body: JSON.stringify({
+    //             email: loginUsuario.value,
+    //             senha: loginSenha.value
+    //         })}).then(response => response.json())
+    //         .then(console.log(response))
         
-        //essas barras seguidas significa que é para retirar depois
-        /////////////////////////////////////////////////////////////
-        //Senha e user apenas para testar
-        if (loginSenha.value == "gabs123" && loginUsuario.value == "gabs") {
-            window.location.href = "../TelaPrincipal/indexHome.html"
-        }else{
-            if (loginUsuario.value == "") {
-                let temporario;
-                temporario = loginUsuario.value;
-                loginUsuario.value = "Usuário incorreto";
-                loginUsuario.style.backgroundColor = "rgb(255, 170, 170)";
-                setTimeout(() => {
-                    loginUsuario.style.backgroundColor = "#88d8d8";
-                    loginUsuario.value = temporario;
-                }, 2000)
-            }
-            if (loginSenha.value.length < 8) {
-                let temporario;
-                let aux = false;
-                temporario = loginSenha.value;
-                if (loginSenha.type == "password") {
-                    loginSenha.type = "text";
-                    aux = true;
-                }
-                loginSenha.value = "Senha incorreta";
-                loginSenha.style.backgroundColor = "rgb(255, 170, 170)";
-                setTimeout(() => {
-                    loginSenha.style.backgroundColor = "#88d8d8";
-                    loginSenha.value = temporario;
-                    if (aux === true) {
-                        loginSenha.type = "password"
-                    }
-                }, 2000)
-            }
-        }
-    }
+    //     if (loginSenha.value == "gabs123" && loginUsuario.value == "gabs") {
+    //         window.location.href = "../TelaPrincipal/indexHome.html"
+    //     }else{
+    //         if (loginUsuario.value == "") {
+    //             let temporario;
+    //             temporario = loginUsuario.value;
+    //             loginUsuario.value = "Usuário incorreto";
+    //             loginUsuario.style.backgroundColor = "rgb(255, 170, 170)";
+    //             setTimeout(() => {
+    //                 loginUsuario.style.backgroundColor = "#88d8d8";
+    //                 loginUsuario.value = temporario;
+    //             }, 2000)
+    //         }
+    //         if (loginSenha.value.length < 8) {
+    //             let temporario;
+    //             let aux = false;
+    //             temporario = loginSenha.value;
+    //             if (loginSenha.type == "password") {
+    //                 loginSenha.type = "text";
+    //                 aux = true;
+    //             }
+    //             loginSenha.value = "Senha incorreta";
+    //             loginSenha.style.backgroundColor = "rgb(255, 170, 170)";
+    //             setTimeout(() => {
+    //                 loginSenha.style.backgroundColor = "#88d8d8";
+    //                 loginSenha.value = temporario;
+    //                 if (aux === true) {
+    //                     loginSenha.type = "password"
+    //                 }
+    //             }, 2000)
+    //         }
+    //     }
+    // }
 
     //-------------------------------------------------------------------
     //Verificar os dados fornecidos pelo cadastro
@@ -159,4 +166,14 @@
         }
     }
 
-})()
+});async function RealizarLogin(){
+    await fetch("https://localhost:7284/Login", {
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        method: 'PUT',
+        body: JSON.stringify({
+            email: loginUsuario.value,
+            senha: loginSenha.value
+        })}).then(response => response.json())
+        .then(console.log(response))}
