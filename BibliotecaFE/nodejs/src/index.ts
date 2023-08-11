@@ -42,16 +42,15 @@ expressApp.get('/livro/:id', async (req, res) => {
 });
 
 expressApp.post('/livro', async (req, res) => {
-  console.log("--------");
   
-  console.log(req.body);
-  console.log("--------");
   const {error} = await supabase
       .from('livro')
       .insert({
         titulo: req.body.titulo,
         autor: req.body.autor,
-        categoria: req.body.categoria
+        categoria: req.body.categoria,
+        lancamento: req.body.lancamento,
+        quantidade: req.body.quantidade
       })
      
       
@@ -68,7 +67,9 @@ expressApp.put('/livro/:id', async (req, res) => {
       .update({
           titulo: req.body.titulo,
           autor: req.body.autor,
-          categoria: req.body.categoria
+          categoria: req.body.categoria,
+          lancamento: req.body.lancamento,
+          quantidade: req.body.quantidade
       })
       .eq('id', req.params.id)
   if (error) {
