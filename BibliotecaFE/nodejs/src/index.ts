@@ -24,6 +24,7 @@ async function getAllProfiles() {
   console.log(data);
   return data;
 }
+
 async function main() {
   const port = process.env.PORT || 3000;
   expressApp.listen(port, () => {
