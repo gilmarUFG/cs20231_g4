@@ -78,9 +78,9 @@ expressApp.put('/livro/:id', async (req, res) => {
   res.send("updated!!");
 });
 
-expressApp.delete('/products/:id', async (req, res) => {
+expressApp.delete('/livro/:id', async (req, res) => {
   const {error} = await supabase
-      .from('products')
+      .from('livro')
       .delete()
       .eq('id', req.params.id)
   if (error) {
