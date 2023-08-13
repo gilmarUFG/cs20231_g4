@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { log } from "console";
 import express from "express";
 // Replace these with your Supabase credentials
 const supabaseUrl = "https://orfdtvmjzqvptbbwvxof.supabase.co";
@@ -89,6 +88,63 @@ expressApp.delete('/livro/:id', async (req, res) => {
   res.send("deleted!!")
 
 });
+expressApp.post("/livro/alugar/:id", async (req, res) => {
+  const livroId = req.body.livro_id;
+  const profileId = req.body.profile_id;
+  try {
+    const { error: insertError } = await supabase.from("alugados").insert({
+      livro_id: livroId,
+      profile_id: profileId,
+    });
+    if (insertError) {
+      console.log(insertError);
+      return res.status(500).send("Erro ao alugar livro.");
+    }
+    const { error: updateError } = await supabase.from("livros")
+      .update({ quantidade: { "$inc": -1 } })
+      .eq("id", livroId);
+    if (updateError) {
+      console.log(updateError);
+      return res.status(500).send("Erro ao atualizar quantidade de livros.");
+    }
+
+    res.send("Livro alugado com sucesso!");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Erro ao alugar livro.");
+  }
+});
+
+
+expressApp.delete(
+  "/livro/alugar/:idLivro/:idUsuario",
+  async (req, res) => {
+    const livroId = req.params.idLivro;
+    const usuarioId = req.params.idUsuario;
+    try {
+      const { error: deleteError } = await supabase
+        .from("alugados")
+        .delete()
+        .eq("livro_id", livroId)
+        .eq("profile_id", usuarioId);
+
+      if (deleteError) {
+        return res.status(500).send("Erro ao devolver livro.");
+      }
+      const { error: updateError } = await supabase.from("livros")
+        .update({ quantidade: { "$inc": 1 } })
+        .eq("id", livroId);
+
+      if (updateError) {
+        return res.status(500).send("Erro ao atualizar quantidade de livros.");
+      }
+      res.send("Livro devolvido com sucesso!");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Erro ao devolver livro.");
+    }
+  }
+);
 async function main() {
   const port = process.env.PORT || 3000;
   expressApp.listen(port, () => {
