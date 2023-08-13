@@ -1,4 +1,4 @@
-﻿using Biblioteca.Models;
+using Biblioteca.Models;
 using Biblioteca.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,13 +39,13 @@ namespace Biblioteca.Controllers
             LivroModel livro = await _livroRepositorio.Atualizar(livroModel, id);
             return Ok(livro);
         }
-        [HttpPut("{id}")]
+        [HttpPut("alugar/{id}")]
         public async Task<ActionResult<LivroModel>> Alugar([FromBody] int id, int idUsuario)
         {
             LivroModel livro = await _livroRepositorio.Alugar(id, idUsuario);
             return Ok(livro);
         }
-        [HttpPut("{id}")]
+        [HttpPut("devolver/{id}")]
         public async Task<ActionResult<LivroModel>> Devolver([FromBody] int id, int idUsuario)
         {
             LivroModel livro = await _livroRepositorio.Devolver(id, idUsuario);

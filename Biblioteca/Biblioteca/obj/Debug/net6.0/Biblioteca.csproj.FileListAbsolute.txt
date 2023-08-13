@@ -81,3 +81,4 @@ C:\Users\Usuario\Desktop\CS2023\cs20231_g4\Biblioteca\Biblioteca\obj\Debug\net6.
 C:\Users\Usuario\Desktop\CS2023\cs20231_g4\Biblioteca\Biblioteca\obj\Debug\net6.0\Biblioteca.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\CS2023\cs20231_g4\Biblioteca\Biblioteca\obj\Debug\net6.0\ref\Biblioteca.dll
 C:\Users\Usuario\Desktop\CS2023\cs20231_g4\Biblioteca\Biblioteca\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Usuario\Desktop\CS2023\cs20231_g4\Biblioteca\Biblioteca\bin\Debug\net6.0\Biblioteca.staticwebassets.runtime.json
