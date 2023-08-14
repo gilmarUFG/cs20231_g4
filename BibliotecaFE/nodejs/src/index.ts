@@ -152,6 +152,7 @@ expressApp.post("/admin/deleteLivro",  async (req, res) => {
   res.send(data);
 });
 
+
 async function main() {
   const port = process.env.PORT || 3000;
   expressApp.listen(port, () => {
@@ -176,9 +177,6 @@ expressApp.post("/livro/alugar", async (req, res) => {
   const livroId = parseInt(req.body.livroId);
   const profileId = req.body.profileId;
   const devolverAt = req.body.devolverAt;
-
-  console.log(req.body);
-
   try {
     const { data, error } = await supabase
       .from("livro")
