@@ -3,13 +3,13 @@ import Script from "next/script";
 import React, { useEffect, useState } from "react";
 
 import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = "https://orfdtvmjzqvptbbwvxof.supabase.co";
-const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZmR0dm1qenF2cHRiYnd2eG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1ODg1ODIsImV4cCI6MjAwMjE2NDU4Mn0.po8KuRqJ2cZ94T7tUJP64iA2_NrscEW7qeEPiYQkiqg";
+import "./asd.css";
+import { get } from "http";
+export const supabaseUrl = "https://orfdtvmjzqvptbbwvxof.supabase.co" as any;
+export const supabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZmR0dm1qenF2cHRiYnd2eG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1ODg1ODIsImV4cCI6MjAwMjE2NDU4Mn0.po8KuRqJ2cZ94T7tUJP64iA2_NrscEW7qeEPiYQkiqg" as any;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
 export default function Home() {
   const [session, setSession] = useState(null) as any;
   useEffect(() => {
@@ -34,10 +34,8 @@ export default function Home() {
 function PaginaCadastro() {
   const [registerState, setRegisterState] = React.useState({
     nome: "",
-    nascimento: "",
     email: "",
     senha: "",
-    confirmaSenha: "",
   });
 
   const [loginState, setLoginState] = React.useState({
@@ -57,11 +55,13 @@ function PaginaCadastro() {
                 email: loginState.email,
                 password: loginState.senha,
               })
-              .then((response) => {
+              .then(async (response) => {
+                var username = registerState.nome;
                 if (response.error) {
                   alert(response.error.message);
                   return;
                 }
+
                 console.log(response);
               });
           }}
@@ -128,30 +128,6 @@ function PaginaCadastro() {
           type="text"
           name="Nome"
         />
-        <div className="divAniversarioFuncionario">
-          <div>
-            <label
-              className="txtinputs txtAniversario"
-              htmlFor="DataAniversario"
-            >
-              Nascimento:
-            </label>
-            <br />
-            <input
-              value={registerState.nascimento}
-              onChange={(e) =>
-                setRegisterState({
-                  ...registerState,
-                  nascimento: e.target.value,
-                })
-              }
-              className="inputsCadastro dataAniversario"
-              type="date"
-              name="DataAniversario"
-              id=""
-            />
-          </div>
-        </div>
         <label className="txtinputs" htmlFor="email">
           Email:
         </label>
@@ -178,26 +154,7 @@ function PaginaCadastro() {
           name="senha"
           id="id_cadastroSenha"
         />
-        <i
-          className="fas fa-regular fa-eye visualizarSenhaCadastro "
-          id="id_btnMostrarSenhaCadastro"
-        ></i>
-        <label className="txtinputs" htmlFor="ConfirmaSenha">
-          Confirmar senha:
-        </label>
-        <input
-          value={registerState.confirmaSenha}
-          onChange={(e) =>
-            setRegisterState({
-              ...registerState,
-              confirmaSenha: e.target.value,
-            })
-          }
-          className="inputsCadastro inputsSenhaCadastro"
-          type="password"
-          name="ConfirmaSenha"
-          id="id_confirmaCadastroSenha"
-        />
+
         <i
           className="fas fa-regular fa-eye visualizarSenhaCadastro"
           id="id_btnMostrarSenhaConfirmaCadastro"
@@ -210,10 +167,6 @@ function PaginaCadastro() {
           value="Cadastrar"
           onClick={async (e) => {
             e.preventDefault();
-            if (registerState.senha !== registerState.confirmaSenha) {
-              alert("As senhas não coincidem");
-              return;
-            }
             supabase.auth
               .signUp({
                 email: registerState.email,
@@ -222,11 +175,32 @@ function PaginaCadastro() {
                   emailRedirectTo: `${location.origin}/auth/callback`,
                 },
               })
-              .then((response) => {
+              .then(async (response) => {
                 if (response.error) {
-                  alert(response.error.message);
+                  if (response.error.message.includes("already")) {
+                    alert("O usuário já existia, realizando login...");
+                    return supabase.auth
+                      .signInWithPassword({
+                        email: registerState.email,
+                        password: registerState.senha,
+                      })
+                      .then((response) => {
+                        if (response.error) {
+                          alert("Senha ou email incorretos");
+                          return;
+                        }
+                        console.log(response);
+                      });
+                  } else {
+                    alert("ocorreu um erro\n" + response.error.message);
+                  }
                   return;
                 }
+                var username = registerState.nome;
+                var x = await supabase
+                  .from("profiles")
+                  .upsert({ id: response.data.user?.id, username });
+                if (x.error) alert(x.error);
                 console.log(response);
               });
           }}
@@ -250,29 +224,25 @@ function PaginaCadastro() {
   );
 }
 
-export function Account({ session }: { session: any }) {
+function Account({ session }: { session: any }) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null as any);
 
   useEffect(() => {
-    async function getProfile() {
-      setLoading(true);
-      const { user } = session;
-
-      let { data, error } = await supabase
-        .from("profiles")
-        .select(`username`)
-        .eq("id", user.id)
-        .single();
-
-      if (error) {
-        console.warn(error);
-      } else if (data) {
-        setUsername(data.username);
-      }
-      setLoading(false);
-    }
-    getProfile();
+    const { user } = session;
+    supabase
+      .from("profiles")
+      .select(`username`)
+      .eq("id", user.id)
+      .single()
+      .then(({ data, error }) => {
+        if (error) {
+          console.warn(error);
+        } else if (data) {
+          setUsername(data.username);
+        }
+        setLoading(false);
+      });
   }, [session]);
 
   async function updateProfile({ username }: { username: any }) {
@@ -287,13 +257,32 @@ export function Account({ session }: { session: any }) {
   }
 
   return (
-    <form className="form-widget">
-      <div>
-        <label htmlFor="email">Email</label>
+    <div>
+      <a href="/livros">
+        <button
+          style={{
+            width: "100%",
+            marginBottom: "10px",
+          }}
+        >
+          ver livros
+        </button>
+      </a>
+      <form
+        className="form-widget"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          updateProfile({ username });
+        }}
+        style={{
+          // grid 2x2
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
+        <label htmlFor="email">Email: </label>
         <input id="email" type="text" value={session.user.email} disabled />
-      </div>
-      <div>
-        <label htmlFor="username">Name</label>
+        <label htmlFor="username">Name: </label>
         <input
           id="username"
           type="text"
@@ -301,30 +290,39 @@ export function Account({ session }: { session: any }) {
           value={username || ""}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
 
-      <div>
         <button
-          className="button block primary"
+          style={{
+            width: "100%",
+          }}
           disabled={loading}
           onClick={(e) => {
             e.preventDefault();
             updateProfile({ username });
           }}
         >
-          {loading ? "Loading ..." : "Update"}
+          {loading ? "Carregando..." : "Atualizar"}
         </button>
-      </div>
-
+      </form>
+      <div
+        style={{
+          height: 10,
+        }}
+      ></div>
       <div>
         <button
-          className="button block"
           type="button"
-          onClick={() => supabase.auth.signOut()}
+          onClick={async () => {
+           await supabase.auth.signOut();
+           window.location.reload();
+          }}
+          style={{
+            width: "100%",
+          }}
         >
-          Sign Out
+          Sair
         </button>
       </div>
-    </form>
+    </div>
   );
 }

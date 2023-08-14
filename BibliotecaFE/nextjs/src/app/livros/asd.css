@@ -1,0 +1,223 @@
+* {
+    /* border: 1px solid red */
+}
+
+.corpo {
+    background-color: #88d8d8;
+    height: 100vh;
+    width: 100vw;
+    display: grid !important;
+    grid-template-columns: 3% 94% 3%;
+    grid-template-rows: 10% 85% 5%;
+    margin: 0;
+    color: #0D1F26;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.headerPrincipal {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    color: #0D1F26;
+}
+
+.txtLateral {
+    grid-column: 1/2;
+    font-size: 1.8vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 2px;
+    user-select: none;
+}
+
+.headerSuperior {
+    height: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    user-select: none;
+    background-color: #35afaf;
+}
+
+.headerInferior {
+    background-color: #88d8d8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: #0D1F26;
+    font-size: 1.1vmax;
+    height: 49%;
+}
+
+.bordaHeader {
+    height: 2%;
+    width: 100%;
+    background-image: linear-gradient(#35afaf, #88d8d8);
+}
+
+.data {
+    margin-left: 2%;
+}
+
+.dataHora {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 2%;
+    width: 20vmax;
+    height: 100%;
+    font-size: 1.2vmax;
+    cursor: default;
+    user-select: none;
+}
+
+.fa-clock {
+    margin-left: 10%;
+}
+
+.hora {
+    margin-left: 2%;
+}
+
+.infoUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 30vmax;
+    margin-right: 1%;
+}
+
+.tipoUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7vmax;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    height: 70%;
+    border-radius: 0;
+}
+
+.txtLogo {
+    font-size: 1.5vmax;
+    font-weight: bold;
+}
+
+.btnSair {
+    font-weight: bold;
+}
+
+.btnSair:hover {
+    cursor: pointer;
+    color: #1e6666;
+}
+
+.menuOpcoes {
+    cursor: pointer;
+    padding: 0.6vmax;
+    width: 14vmax;
+    text-align: center;
+    user-select: none;
+}
+
+.menuOpcoes:hover {
+    background-color: #b0e2e2;
+}
+
+@keyframes moverMeusLivros {
+    to {
+        left: 4.85vmax;
+    }
+}
+
+@keyframes moverDevolucao {
+    to {
+        left: 29.81vmax;
+    }
+}
+
+@keyframes moverHistorico {
+    to {
+        left: 54.84vmax;
+    }
+}
+
+@keyframes moverLivros {
+    to {
+        left: 79.81vmax;
+    }
+}
+
+ul {
+    max-height: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+li {
+    border-bottom: 1px solid #0D1F26;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    user-select: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* width < 500px  */
+@media only screen and (max-width: 600px) {
+    li{
+        flex-direction: column;
+    }
+}
+
+li p {
+    width: 100%
+}
+
+li:hover {
+    background-color: #b0e2e2 !important;
+    cursor: pointer;
+}
+
+/* Altera a cor da barra de rolagem */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #b0e2e2;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0D1F26;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0D1F26;
+}
+
+.genero-romance {
+    background-color: #ffaeae;
+}
+
+.genero-ciencia {
+    background-color: #CCFFCC;
+}
+
+.genero-terror {
+    background-color: #CCCCFF;
+}
+
+.genero-fantasia {
+    background-color: #FFCCFF;
+}
