@@ -81,9 +81,10 @@ expressApp.delete("/livro/:id", async (req, res) => {
   }
   res.send("deleted!!");
 });
-expressApp.post("/livro/alugar/:id", async (req, res) => {
+expressApp.post("/livro/alugar", async (req, res) => {
   const livroId = req.body.livro_id;
   const profileId = req.body.profile_id;
+  const devolverAt = req.body.devolver_at;
   try {
     const { data, error } = await supabase
       .from("livro")
@@ -104,6 +105,7 @@ expressApp.post("/livro/alugar/:id", async (req, res) => {
     const { error: insertError } = await supabase.from("alugados").insert({
       livro_id: livroId,
       profile_id: profileId,
+      devolver_at: devolverAt
     });
     if (insertError) {
       console.log(insertError);
@@ -125,9 +127,9 @@ expressApp.post("/livro/alugar/:id", async (req, res) => {
   }
 });
 
-expressApp.delete("/livro/alugar/:idLivro/:idUsuario", async (req, res) => {
-  const livroId = req.params.idLivro;
-  const usuarioId = req.params.idUsuario;
+expressApp.post("/livro/devolver", async (req, res) => {
+  const livroId = req.body.livro_id;
+  const alugadoId = req.body.alugado_id;
   try {
     const { data, error } = await supabase
       .from("livro")
@@ -144,8 +146,7 @@ expressApp.delete("/livro/alugar/:idLivro/:idUsuario", async (req, res) => {
     const { error: deleteError } = await supabase
       .from("alugados")
       .delete()
-      .eq("livro_id", livroId)
-      .eq("profile_id", usuarioId);
+      .eq("id", alugadoId)
 
     if (deleteError) {
       return res.status(500).send("Erro ao devolver livro.");
