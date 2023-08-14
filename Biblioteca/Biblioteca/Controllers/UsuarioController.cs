@@ -14,7 +14,7 @@ namespace Biblioteca.Controllers
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
-        [Authorize(Policy = "AdminPolicy")]
+        //[Authorize(Policy = "AdminPolicy")]
         [HttpGet]
         public async Task< ActionResult<List<UsuarioModel>>> BuscarTodosUsuarios()
         {
