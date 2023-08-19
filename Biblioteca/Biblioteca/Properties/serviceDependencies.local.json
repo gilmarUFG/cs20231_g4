@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/construcao2/databases/biblioteca2",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DataBase",
+      "dynamicId": null
+    }
+  }
+}
